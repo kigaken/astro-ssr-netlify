@@ -1,11 +1,37 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import '../styles/global.css'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = 'AstroによるSSRの実装（Netlify版）';
+
+let random = Math.floor(Math.random() * 100);
+
+// SSGモードに設定
+export const prerender = true;
 ---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+</head>
+<body>
+	<div class="container mx-auto pt-8">
+		<h1 class="text-2xl bg-blue-100 mb-3">{title}</h1>
+		<p class="text-lg mb-2"><strong>乱数</strong>：{random}</p>
+		<p class="mb-4">
+			SSGならばページを更新しても値が変わらない。<br>
+			SSRならページを更新する度に変更される。
+		</p>
+		<div class="bg-gray-100 p-4">
+			<p>注意点</p>
+			<ul class="list-disc list-inside">
+				<li>npm run devで立ち上げた開発サーバーはSSRが基本</li>
+				<li>npm run build、npm run previewで見た時に違いを見ることができる</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /.container -->	
+</body>
+</html>
 
-<Layout>
-	<Welcome />
-</Layout>
