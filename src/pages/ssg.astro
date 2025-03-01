@@ -5,8 +5,8 @@ const title = 'AstroによるSSRの実装（Netlify版）';
 
 let random = Math.floor(Math.random() * 100);
 
-// SSRモードに設定
-export const prerender = false;
+// SSGモードに設定
+export const prerender = true;
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -18,7 +18,7 @@ export const prerender = false;
 <body>
 	<div class="container mx-auto pt-8">
 		<h1 class="text-2xl bg-blue-100 mb-3">{title}</h1>
-		<h2 class="text-3xl mb-4">SSRページ</h2>
+		<h2 class="text-3xl mb-4">SSGページ</h2>
 		<p class="text-lg mb-2"><strong>乱数</strong>：{random}</p>
 		<p class="mb-4">
 			SSGならばページを更新しても値が変わらない。<br>
@@ -39,4 +39,3 @@ export const prerender = false;
 	<!-- /.container -->	
 </body>
 </html>
-
